@@ -1,0 +1,69 @@
+---
+title: "ChrisWoodard6306wk4homework"
+author: "cw"
+date: "June 5, 2016"
+output: html_document
+keep_md: TRUE
+---
+
+#Week/Unit 4 - Bootstrap code to illustrate Central Limit Theorem
+
+##Normal Distribution with two (2) different samples sizes
+
+##Exponential Distribution with two (2) different sample sizes
+
+###Normal Distribution n=30 (Sample size 1 of 2)
+```{r, normal distribution 30, echo=TRUE}
+x <- rnorm(30)
+R <- 1000
+bootmean <- numeric(R)
+for (i in 1:R){
+  bootsample <- sample(x, size=length(x), replace=TRUE)
+  bootmean[i] <- mean(bootsample)}
+mean(bootmean)
+sd(bootmean)
+hist(bootmean)
+```
+
+###Normal Distribution n=100 (Sample Size 2 of 2)
+```{r, normal distribution 100, echo=TRUE}
+x <- rnorm(100)
+R <- 1000
+bootmean <- numeric(R)
+for (i in 1:R){
+  bootsample <- sample(x, size=length(x), replace=TRUE)
+  bootmean[i] <- mean(bootsample)}
+mean(bootmean)
+sd(bootmean)
+hist(bootmean)
+```
+
+###Exponential Distribution n=30 (Sample Size 1 of 2)
+```{r, expontential distribution 30, echo=TRUE}
+x <- rexp(30)
+R <- 1000
+bootmean <- numeric(R)
+for (i in 1:R){
+  bootsample <- sample(x, size=length(x), replace=TRUE)
+  bootmean[i] <- mean(bootsample)}
+mean(bootmean)
+sd(bootmean)
+hist(bootmean)
+```
+
+
+###Exponential Distribution n=100 (Sample Size 2 of 2)
+```{r, exponential distribution 100, echo=TRUE}
+x <- rexp(100)
+R <- 1000
+bootmean <- numeric(R)
+for (i in 1:R){
+  bootsample <- sample(x, size=length(x), replace=TRUE)
+  bootmean[i] <- mean(bootsample)}
+mean(bootmean)
+sd(bootmean)
+```
+
+##Comments:
+The Central Limit Theorum states that the distribution of sample means will approach a "normal" bell curve shape as the sample size increases.  Also, as the sample size increases, the variance between means decreases (as you can see illustrated above)
+The bootstrap function produces random simulations to a specified number (It was 1000 in all of the runs above) with a specified number of samples (n=30 and 1000).  Simulations were bootstrapped to be random normal distribution and random exponential distribution.
